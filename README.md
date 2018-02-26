@@ -1,4 +1,20 @@
 # EasyCamera
+
+[![auc][aucsvg]][auc] [![api][apisvg]][api] [![repository][repositorysvg]][repository] [![License][licensesvg]][license]
+
+[aucsvg]: https://img.shields.io/badge/EasyCamera-v0.0.2-brightgreen.svg
+[auc]: https://github.com/lonelyenvoy/EasyCamera
+
+[apisvg]: https://img.shields.io/badge/API-14+-brightgreen.svg
+[api]: https://android-arsenal.com/api?level=14
+
+[repositorysvg]: https://img.shields.io/badge/Bintray_JCenter-latest-blue.svg
+[repository]: https://bintray.com/lonelyenvoy/maven/ink.envoy.easycamera
+
+[licensesvg]: https://img.shields.io/badge/License-MIT-blue.svg
+[license]: https://github.com/lonelyenvoy/EasyCamera/blob/master/LICENSE
+
+
 A tiny, fast library simplifying picture-taking on Android.
 
 ## Usage in 3 steps
