@@ -26,7 +26,7 @@ public class MainActivity extends EasyCameraActivity {
 }
 ```
 
-2. Call ```openCamera()``` and inject ```CameraListener```
+2. Call ```openCamera()``` and inject ```CameraListener```:
 ```java
 try {
   openCamera(new CameraListener() {
@@ -40,7 +40,7 @@ try {
 }
 ```
 
-3. What you can do with the picture - for example:
+3. Do something with the picture - for example:
 ```java
 @Override
 public void onPictureTaken(String picturePath) {
