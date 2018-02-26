@@ -3,7 +3,7 @@ A tiny, fast library simplifying picture-taking on Android.
 
 ## Usage in 3 steps
 
-1. Extend your Activity with **EasyCameraActivity**:
+1. Extend your Activity with ```EasyCameraActivity```:
 ```java
 public class MainActivity extends EasyCameraActivity {
   // ...
@@ -40,15 +40,15 @@ public void onPictureTaken(String picturePath) {
 
 Via Gradle:
 ```groovy
-compile 'ink.envoy.easycamera:app:0.0.1'
+compile 'ink.envoy.easycamera:easycamera:0.0.2'
 ```
 
 Via Maven:
 ```xml
 <dependency>
   <groupId>ink.envoy.easycamera</groupId>
-  <artifactId>app</artifactId>
-  <version>0.0.1</version>
+  <artifactId>easycamera</artifactId>
+  <version>0.0.2</version>
   <type>pom</type>
 </dependency>
 ```
