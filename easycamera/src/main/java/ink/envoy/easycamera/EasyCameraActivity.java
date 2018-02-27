@@ -109,6 +109,7 @@ public class EasyCameraActivity extends AppCompatActivity {
     }
 
     private void dispatchTakePictureIntent() {
+        Context context = getApplicationContext();
         Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePhotoIntent.resolveActivity(getPackageManager()) != null) {
             File photoFile;
@@ -120,7 +121,7 @@ public class EasyCameraActivity extends AppCompatActivity {
                 throw new RuntimeException(e);
             }
             Uri photoURI = FileProvider.getUriForFile(this,
-                    "ink.envoy.easycamera.fileprovider",
+                    context.getPackageName() + ".fileprovider",
                     photoFile);
             takePhotoIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
 
@@ -130,7 +131,6 @@ public class EasyCameraActivity extends AppCompatActivity {
             // save photoURI
             currentPhotoURI = photoURI;
 
-            Context context = getApplicationContext();
             List<ResolveInfo> resolvedIntentActivities = context
                     .getPackageManager()
                     .queryIntentActivities(takePhotoIntent, PackageManager.MATCH_DEFAULT_ONLY);
