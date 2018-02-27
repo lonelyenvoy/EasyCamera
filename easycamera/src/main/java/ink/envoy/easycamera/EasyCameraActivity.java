@@ -98,13 +98,11 @@ public class EasyCameraActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
 
-            // solve SecurityException on devices < Android 5.0
+            // solve SecurityException
             // see https://medium.com/@a1cooke/using-v4-support-library-fileprovider-and-camera-intent-a45f76879d61
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                getApplicationContext().revokeUriPermission(currentPhotoURI,
-                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                currentPhotoURI = null;
-            }
+            getApplicationContext().revokeUriPermission(currentPhotoURI,
+                    Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            currentPhotoURI = null;
 
             cameraListener.onPictureTaken(currentPhotoPath);
         }
@@ -126,20 +124,19 @@ public class EasyCameraActivity extends AppCompatActivity {
                     photoFile);
             takePhotoIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
 
-            // solve SecurityException on devices < Android 5.0
+            // solve SecurityException
             // see https://medium.com/@a1cooke/using-v4-support-library-fileprovider-and-camera-intent-a45f76879d61
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                // save photoURI
-                currentPhotoURI = photoURI;
 
-                Context context = getApplicationContext();
-                List<ResolveInfo> resolvedIntentActivities = context
-                        .getPackageManager()
-                        .queryIntentActivities(takePhotoIntent, PackageManager.MATCH_DEFAULT_ONLY);
-                for (ResolveInfo resolvedIntentInfo : resolvedIntentActivities) {
-                    String packageName = resolvedIntentInfo.activityInfo.packageName;
-                    context.grantUriPermission(packageName, photoURI, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                }
+            // save photoURI
+            currentPhotoURI = photoURI;
+
+            Context context = getApplicationContext();
+            List<ResolveInfo> resolvedIntentActivities = context
+                    .getPackageManager()
+                    .queryIntentActivities(takePhotoIntent, PackageManager.MATCH_DEFAULT_ONLY);
+            for (ResolveInfo resolvedIntentInfo : resolvedIntentActivities) {
+                String packageName = resolvedIntentInfo.activityInfo.packageName;
+                context.grantUriPermission(packageName, photoURI, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
             }
 
             startActivityForResult(takePhotoIntent, REQUEST_IMAGE_CAPTURE);
