@@ -10,7 +10,7 @@
 
         <provider
             android:name="ink.envoy.easycamera.ghost.EasyCameraFileProvider"
-            android:authorities="ink.envoy.easycamera.fileprovider"
+            android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
