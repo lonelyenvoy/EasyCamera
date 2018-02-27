@@ -7,8 +7,7 @@ import android.support.v4.content.FileProvider;
  */
 
 /**
- * An empty wrapper of
- * @see android.support.v4.content.FileProvider
+ * An empty wrapper of android.support.v4.content.FileProvider
  * solving issue #1
  */
 public class EasyCameraFileProvider extends FileProvider {
