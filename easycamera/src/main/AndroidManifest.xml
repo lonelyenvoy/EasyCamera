@@ -9,7 +9,7 @@
         android:supportsRtl="true">
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="ink.envoy.easycamera.ghost.EasyCameraFileProvider"
             android:authorities="ink.envoy.easycamera.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
