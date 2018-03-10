@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">EasyCamera</string>
+    <string name="action_ok">OK</string>
+    <string name="hint_write_external_storage_permission_required">This app needs permission to save the photo on your phone. Please grant the external storage permission in system settings.</string>
 </resources>

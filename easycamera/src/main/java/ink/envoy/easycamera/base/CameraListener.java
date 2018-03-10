@@ -9,4 +9,5 @@ import android.support.v7.app.AlertDialog;
 
 public interface CameraListener {
     void onPictureTaken(String picturePath);
+    void onCancelled();
 }

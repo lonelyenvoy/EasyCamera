@@ -15,6 +15,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 import java.io.File;
 import java.io.IOException;
@@ -96,7 +97,7 @@ public class EasyCameraActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE) {
 
             // solve SecurityException
             // see https://medium.com/@a1cooke/using-v4-support-library-fileprovider-and-camera-intent-a45f76879d61
@@ -104,7 +105,10 @@ public class EasyCameraActivity extends AppCompatActivity {
                     Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
             currentPhotoURI = null;
 
-            cameraListener.onPictureTaken(currentPhotoPath);
+            switch (resultCode) {
+                case RESULT_OK: cameraListener.onPictureTaken(currentPhotoPath); break;
+                case RESULT_CANCELED: cameraListener.onCancelled(); break;
+            }
         }
     }
 
