@@ -7,6 +7,6 @@ package ink.envoy.easycamera.exception;
 /**
  * Indicates that the device has no camera.
  */
-public class NoCameraAvailableException extends Exception {
+public class NoCameraAvailableException extends RuntimeException {
 
 }

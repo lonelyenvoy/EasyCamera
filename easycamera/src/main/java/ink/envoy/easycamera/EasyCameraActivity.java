@@ -6,30 +6,23 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
-import android.os.Build;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import ink.envoy.easycamera.base.CameraListener;
 import ink.envoy.easycamera.base.DefaultPermissionListener;
 import ink.envoy.easycamera.base.PermissionListener;
 import ink.envoy.easycamera.exception.NoCameraAvailableException;
-import ink.envoy.easycamera.util.ApplicationUtils;
+import ink.envoy.easycamera.util.EasyCameraUtils;
 import ink.envoy.easycamera.util.FileUtils;
-import ink.envoy.easycamera.util.HardwareUtils;
 
 /**
  * Created by LonelyEnvoy on 2018/2/26.
@@ -60,7 +53,7 @@ public class EasyCameraActivity extends AppCompatActivity {
     }
 
     protected final void openCamera(File storageDirectory, CameraListener cameraListener, PermissionListener permissionListener) throws NoCameraAvailableException {
-        if (!HardwareUtils.hasCamera(this)) {
+        if (!EasyCameraUtils.deviceHasCamera(this)) {
             throw new NoCameraAvailableException();
         }
 

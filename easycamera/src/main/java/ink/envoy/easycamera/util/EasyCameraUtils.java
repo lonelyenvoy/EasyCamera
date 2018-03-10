@@ -2,6 +2,7 @@ package ink.envoy.easycamera.util;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -53,5 +54,9 @@ public class EasyCameraUtils {
         Bitmap orientedBitmap = ExifUtils.rotateBitmap(picturePath, bitmap);
         imageView.setImageBitmap(orientedBitmap);
 
+    }
+
+    public static boolean deviceHasCamera(Context context) {
+        return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA);
     }
 }
