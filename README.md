@@ -2,7 +2,7 @@
 
 [![auc][aucsvg]][auc] [![api][apisvg]][api] [![repository][repositorysvg]][repository] [![License][licensesvg]][license]
 
-[aucsvg]: https://img.shields.io/badge/EasyCamera-v0.1.0-brightgreen.svg
+[aucsvg]: https://img.shields.io/badge/EasyCamera-v0.2.0-brightgreen.svg
 [auc]: https://github.com/lonelyenvoy/EasyCamera
 
 [apisvg]: https://img.shields.io/badge/API-14+-brightgreen.svg
@@ -26,29 +26,32 @@ public class MainActivity extends EasyCameraActivity {
 }
 ```
 
-2. Call ```openCamera()``` and inject ```CameraListener```:
+2. Call ```openCamera()``` and inject a ```CameraListener```:
 ```java
-try {
   openCamera(new CameraListener() {
     @Override
     public void onPictureTaken(String picturePath) {
       // Proceed with picturePath, the path to the picture taken just now.
     }
+    @Override
+    public void onCancelled() {
+      // ...
+    }
   });
-} catch (NoCameraAvailableException e) {
-  // ...
-}
 ```
+
+By default, The ```picturePath``` is ```Environment.DIRECTORY_DCIM/{Your App Name}/{Random Filename}.jpg```. 
+It can be customized by an optional argument of ```openCamera()```.
 
 3. Do something with the picture - for example:
 ```java
 @Override
 public void onPictureTaken(String picturePath) {
   // add the picture to the system gallery.
-  PictureUtils.galleryAddPicture(getApplicationContext(), picturePath);
+  EasyCameraUtils.galleryAddPicture(getApplicationContext(), picturePath);
 
   // load the picture into an ImageView.
-  PictureUtils.loadPicture(imageView, picturePath);
+  EasyCameraUtils.loadPicture(imageView, picturePath);
 }
 ```
 
@@ -56,7 +59,7 @@ public void onPictureTaken(String picturePath) {
 
 Via Gradle:
 ```groovy
-compile 'ink.envoy.easycamera:easycamera:0.1.0'
+implementation 'ink.envoy.easycamera:easycamera:0.2.0'
 ```
 
 Via Maven:
@@ -64,10 +67,15 @@ Via Maven:
 <dependency>
   <groupId>ink.envoy.easycamera</groupId>
   <artifactId>easycamera</artifactId>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
   <type>pom</type>
 </dependency>
 ```
+
+## Pay Attention
+
+If you override ```onActivityResult()``` or ```onRequestPermissionsResult()``` in your activity,
+please call ```super.onRequestPermissionsResult()``` or ```super.onActivityResult()``` for EasyCamera to work properly.
 
 ## Contributing
 

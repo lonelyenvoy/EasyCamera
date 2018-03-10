@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
-version = "0.1.0"
+version = "0.2.0"
 
 android {
     compileSdkVersion 27
@@ -9,7 +9,7 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 6
+        versionCode 8
         versionName version
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
