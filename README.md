@@ -2,7 +2,7 @@
 
 [![auc][aucsvg]][auc] [![api][apisvg]][api] [![repository][repositorysvg]][repository] [![License][licensesvg]][license]
 
-[aucsvg]: https://img.shields.io/badge/EasyCamera-v0.0.6-brightgreen.svg
+[aucsvg]: https://img.shields.io/badge/EasyCamera-v0.1.0-brightgreen.svg
 [auc]: https://github.com/lonelyenvoy/EasyCamera
 
 [apisvg]: https://img.shields.io/badge/API-14+-brightgreen.svg
@@ -56,7 +56,7 @@ public void onPictureTaken(String picturePath) {
 
 Via Gradle:
 ```groovy
-compile 'ink.envoy.easycamera:easycamera:0.0.6'
+compile 'ink.envoy.easycamera:easycamera:0.1.0'
 ```
 
 Via Maven:
@@ -64,7 +64,7 @@ Via Maven:
 <dependency>
   <groupId>ink.envoy.easycamera</groupId>
   <artifactId>easycamera</artifactId>
-  <version>0.0.6</version>
+  <version>0.1.0</version>
   <type>pom</type>
 </dependency>
 ```
