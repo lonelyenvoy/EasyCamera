@@ -13,7 +13,7 @@ import java.io.File;
  * Created by LonelyEnvoy on 2018/2/26.
  */
 
-public class PictureUtils {
+public class EasyCameraUtils {
     public static void galleryAddPicture(Context context, String picturePath) {
         Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
         File f = new File(picturePath);
@@ -26,6 +26,11 @@ public class PictureUtils {
         // Get the dimensions of the View
         int targetW = imageView.getWidth();
         int targetH = imageView.getHeight();
+
+        if (targetW == 0 || targetH == 0) {
+            throw new IllegalStateException(
+                    "To load a picture into an imageView, its width and height cannot be zero.");
+        }
 
         // Get the dimensions of the bitmap
         BitmapFactory.Options bmOptions = new BitmapFactory.Options();
