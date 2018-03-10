@@ -75,7 +75,7 @@ Via Maven:
 ## Pay Attention
 
 If you override ```onActivityResult()``` or ```onRequestPermissionsResult()``` in your activity,
-please call ```super.onRequestPermissionsResult()``` or ```super.onActivityResult()``` for EasyCamera to work properly.
+please call ```super.onActivityResult()``` or ```super.onRequestPermissionsResult()``` for EasyCamera to work properly.
 
 ## Contributing
 
