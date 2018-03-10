@@ -19,14 +19,14 @@ A tiny, fast library simplifying picture-taking on Android.
 
 ## Usage in 3 steps
 
-1. Extend your Activity with ```EasyCameraActivity```:
+**1. Extend your Activity with ```EasyCameraActivity```:**
 ```java
 public class MainActivity extends EasyCameraActivity {
   // ...
 }
 ```
 
-2. Call ```openCamera()``` and inject a ```CameraListener```:
+**2. Call ```openCamera()``` and inject a ```CameraListener```:**
 ```java
   openCamera(new CameraListener() {
     @Override
@@ -43,7 +43,7 @@ public class MainActivity extends EasyCameraActivity {
 By default, The ```picturePath``` is ```Environment.DIRECTORY_DCIM/{Your App Name}/{Random Filename}.jpg```. 
 It can be customized by an optional argument of ```openCamera()```.
 
-3. Do something with the picture - for example:
+**3. Do something with the picture - for example:**
 ```java
 @Override
 public void onPictureTaken(String picturePath) {
